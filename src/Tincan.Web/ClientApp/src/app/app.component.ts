@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'tincan-app';
+  isMenuVisible = false;
+
+  toggleMenu() {
+    this.isMenuVisible = !this.isMenuVisible;
+  }
 }

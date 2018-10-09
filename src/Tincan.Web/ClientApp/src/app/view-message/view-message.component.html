@@ -1,4 +1,4 @@
-<div *ngIf="message; else elseBlock">
+<div *ngIf="message">
   <div style="margin-bottom: 15px;">
     <a class="button is-small is-inline-block is-outlined" (click)="copyLink()" [class.is-success]="hasCopiedToClipboard">
       <span class="icon is-small" *ngIf="hasCopiedToClipboard">
@@ -34,16 +34,14 @@
   </form>
 </div>
 
-<ng-template #elseBlock *ngIf="!isMessageInvalid">
-  <section class="hero is-medium">
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="title is-4 has-text-centered">Getting message</h1>
-        <mat-spinner style="margin: 0 auto;" [mode]="'indeterminate'"></mat-spinner>
-      </div>
+<section class="hero is-medium" *ngIf="!message && !isMessageInvalid">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title is-4 has-text-centered">Getting message</h1>
+      <mat-spinner style="margin: 0 auto;" [mode]="'indeterminate'"></mat-spinner>
     </div>
-  </section>
-</ng-template>
+  </div>
+</section>
 
 <div class="modal" [class.is-active]="isMessageInvalid">
   <div class="modal-background"></div>

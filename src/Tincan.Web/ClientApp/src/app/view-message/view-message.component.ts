@@ -12,7 +12,7 @@ export class ViewMessageComponent implements OnInit, OnDestroy {
   id: string;
   message: MessageDto;
 
-  timer: NodeJS.Timer;
+  timer: any;
   secondsUntilExpiration = 0.0;
 
   content = '';

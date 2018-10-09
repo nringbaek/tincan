@@ -2,8 +2,13 @@
   <div class="container">
     <div class="navbar-brand">
       <a class="navbar-item" [routerLink]="['/']">Tincan - create and share encrypted messages</a>
+      <a role="button" class="navbar-burger" [class.is-active]="isMenuVisible" (click)="toggleMenu()">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
     </div>
-    <div class="navbar-menu">
+    <div class="navbar-menu" [class.is-active]="isMenuVisible">
       <div class="navbar-end">
         <div class="navbar-item">
           <a class="button" target="_blank" href="https://github.com/nringbaek/tincan">
