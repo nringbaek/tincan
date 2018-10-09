@@ -13,8 +13,8 @@ import { AutofocusDirective } from './autofocus.directive';
 import { TimeLeftPipe } from './time-left.pipe';
 
 const routes = [
-  { path: '', component: CreateMessageComponent, pathMatch: 'full' },
-  { path: 'message/:id', component: ViewMessageComponent },
+  { path: ':id', component: ViewMessageComponent },
+  { path: '**', component: CreateMessageComponent }
 ];
 
 @NgModule({

@@ -49,7 +49,7 @@ export class CreateMessageComponent implements OnInit {
     this.isCreatingMessage = true;
     this.messageService.createMessage(key, expiration, content).subscribe(
       result => {
-        this.router.navigate(['/message', result]);
+        this.router.navigate(['/', result]);
       }, err => {
         this.isCreatingMessage = false;
       }
