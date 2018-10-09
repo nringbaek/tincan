@@ -1,0 +1,55 @@
+<form [formGroup]="messageForm" (ngSubmit)="onMessageFormSubmit()">
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">Key</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <input class="input" type="text" placeholder="Your key" formControlName="key" required appAutofocus>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">Expiration</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <input class="input flatpickr flatpickr-input" type="text" placeholder="Expiration" #flatpickrInput>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">Message</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <textarea class="textarea" placeholder="Your message" formControlName="content" required></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field is-horizontal">
+    <div class="field-label">
+      <!-- Left empty for spacing -->
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <button class="button is-primary" [class.is-loading]="isCreatingMessage" [disabled]="!messageForm.valid" type="submit">
+            Encrypt message
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

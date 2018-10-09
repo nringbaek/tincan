@@ -1,0 +1,61 @@
+<div *ngIf="message; else elseBlock">
+  <div style="margin-bottom: 15px;">
+    <a class="button is-small is-inline-block is-outlined" (click)="copyLink()" [class.is-success]="hasCopiedToClipboard">
+      <span class="icon is-small" *ngIf="hasCopiedToClipboard">
+        <i class="fas fa-check"></i>
+      </span>
+      <span>Copy direct link</span>      
+    </a>
+    <div class="tags has-addons is-inline-block" style="margin-left: 10px;">
+      <span class="tag">Expires in</span>
+      <span class="tag is-info">{{secondsUntilExpiration | timeLeft}}</span>
+    </div>
+  </div>
+  <form [formGroup]="messageForm" (ngSubmit)="onMessageFormSubmit()">
+    <div class="field has-addons">
+        <div class="control is-expanded">
+          <p class="control has-icons-left">
+            <input class="input" type="text" placeholder="Key..." [class.is-danger]="showContentError"
+                    formControlName="key" appAutofocus [readonly]="isDecryptingMessage" />
+            <span class="icon is-small is-left">
+              <i class="fas fa-lock"></i>
+            </span>
+          </p>
+        </div>
+        <div class="control">
+          <a class="button is-info" [class.is-loading]="isDecryptingMessage" (click)="onMessageFormSubmit()">
+            Decrypt
+          </a>
+        </div>
+      </div>
+      <div class="field" *ngIf="content">
+        <div class="content box" style="white-space: pre-wrap; word-break: break-word;">{{content}}</div>
+      </div>
+  </form>
+</div>
+
+<ng-template #elseBlock *ngIf="!isMessageInvalid">
+  <section class="hero is-medium">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title is-4 has-text-centered">Getting message</h1>
+        <mat-spinner style="margin: 0 auto;" [mode]="'indeterminate'"></mat-spinner>
+      </div>
+    </div>
+  </section>
+</ng-template>
+
+<div class="modal" [class.is-active]="isMessageInvalid">
+  <div class="modal-background"></div>
+    <div class="modal-content is-fullwidth">
+      <section class="hero is-warning">
+        <div class="hero-body">
+          <div class="container has-text-centered">
+            <h1 class="title">Message not found</h1>
+            <h2 class="subtitle">The message did not exist or has expired</h2>
+            <a class="button is-inverted is-outlined is-warning" [routerLink]="['/']">Go back</a>
+          </div>
+        </div>
+      </section>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+{
+	"launch": {
+		"configurations": [],
+		"compounds": [
+			{
+				"name": "Start Client + API",
+				"configurations": [
+					{
+						"name": ".NET Core Launch (web)",
+						"folder": "src"						
+					},
+					{
+						"name": "Launch Chrome",
+						"folder": "client-app"
+					}
+				]
+			}
+		]
+	},
+	"folders": [
+		{
+			"path": "src",
+			"name": "src"
+		},
+		{
+			"path": "src/Tincan.Web/ClientApp",
+			"name": "client-app"
+		}
+	],
+	"settings": {
+		"files.exclude": {
+			"**/bin": true,
+			"**/obj": true,
+			"**/.vs": true,
+			"**/.git": true,
+			"**/node_modules": true
+		}
+	}	
+}

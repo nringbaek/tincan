@@ -1,0 +1,8 @@
+@charset "utf-8";
+@import "../node_modules/flatpickr/dist/flatpickr.min.css";
+@import "../node_modules/bulma/bulma.sass";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.is-fullwidth {
+    width: 100%;
+}

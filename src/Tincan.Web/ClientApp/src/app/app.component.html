@@ -1,0 +1,27 @@
+<nav class="navbar is-light has-shadow" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" [routerLink]="['/']">Tincan - create and share encrypted messages</a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <a class="button" target="_blank" href="#">
+            <span class="icon">
+              <i class="fab fa-github"></i>
+            </span>
+            <span>
+              View on GitHub
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="section">
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</section>
