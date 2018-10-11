@@ -1,17 +1,23 @@
 <div *ngIf="message">
-  <div style="margin-bottom: 15px;">
-    <a class="button is-inline-block is-outlined" (click)="copyLink()" [class.is-success]="hasCopiedToClipboard">
-      <span class="icon is-small" *ngIf="hasCopiedToClipboard">
-        <i class="fas fa-check"></i>
-      </span>
-      <span>Copy direct link</span>      
-    </a>
-    <a [routerLink]="['/']" class="button is-inline-block is-outlined" style="margin: 0 10px;">
-      Create new
-    </a>
-    <div class="tags has-addons is-inline-block">
-      <span class="tag is-medium">Expires in</span>
-      <span class="tag is-info is-medium">{{secondsUntilExpiration | timeLeft}}</span>
+  <div style="margin-bottom: 20px;">
+    <div class="columns">
+      <div class="column has-text-centered is-narrow">
+        <a class="button is-inline-block is-outlined" (click)="copyLink()" [class.is-success]="hasCopiedToClipboard">
+          <span class="icon is-small" *ngIf="hasCopiedToClipboard">
+            <i class="fas fa-check"></i>
+          </span>
+          <span>Copy direct link</span>      
+        </a>
+        <a [routerLink]="['/']" class="button is-inline-block is-outlined" style="margin: 0 10px;">
+          Create new
+        </a>
+      </div>
+      <div class="column has-text-centered is-narrow">
+        <div class="tags has-addons is-inline-block">
+          <span class="tag is-medium">Expires in</span>
+          <span class="tag is-info is-medium">{{secondsUntilExpiration | timeLeft}}</span>
+        </div>
+      </div>
     </div>
   </div>
   <form [formGroup]="messageForm" (ngSubmit)="onMessageFormSubmit()">
@@ -32,7 +38,7 @@
         </div>
       </div>
       <div class="field" *ngIf="content">
-        <div class="content box" style="white-space: pre-wrap; word-break: break-word;">{{content}}</div>
+        <div class="content box" style="white-space: pre-wrap; word-break: break-word;" [innerHTML]="content | safeHtml"></div>
       </div>
   </form>
 </div>

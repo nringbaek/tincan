@@ -11,6 +11,7 @@ import { CreateMessageComponent } from './create-message/create-message.componen
 import { ViewMessageComponent } from './view-message/view-message.component';
 import { AutofocusDirective } from './autofocus.directive';
 import { TimeLeftPipe } from './time-left.pipe';
+import { SafeHtmlPipe } from './safe-html.pipe';
 
 const routes = [
   { path: ':id', component: ViewMessageComponent },
@@ -23,7 +24,8 @@ const routes = [
     CreateMessageComponent,
     ViewMessageComponent,
     AutofocusDirective,
-    TimeLeftPipe
+    TimeLeftPipe,
+    SafeHtmlPipe
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
